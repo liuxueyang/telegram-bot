@@ -1,0 +1,37 @@
+---
+version: 1
+disable_existing_loggers: True
+
+formatters:
+  simple:
+    format: '%(asctime)s - %(name)s - %(levelname)s - %(message)s'
+
+handlers:
+  debug_console:
+    class: logging.StreamHandler
+    level: DEBUG
+    formatter: simple
+    stream: ext://sys.stdout
+
+  info_console:
+    class: logging.StreamHandler
+    level: INFO
+    formatter: simple
+    stream: ext://sys.stdout
+
+  main_lib_file_handler:
+    class: logging.FileHandler
+    level: DEBUG
+    formatter: simple
+    delay: True
+    filename: log/main_lib.log
+
+loggers:
+  __main__:
+    level: DEBUG
+    handlers: [debug_console]
+    propagate: no
+
+root:
+  level: DEBUG
+  handlers: [debug_console]
