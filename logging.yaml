@@ -19,17 +19,17 @@ handlers:
     formatter: simple
     stream: ext://sys.stdout
 
-  main_lib_file_handler:
+  main_file_handler:
     class: logging.FileHandler
     level: DEBUG
     formatter: simple
     delay: True
-    filename: log/main_lib.log
+    filename: log/main.log
 
 loggers:
   __main__:
     level: DEBUG
-    handlers: [debug_console]
+    handlers: [debug_console, main_file_handler]
     propagate: no
 
 root:
